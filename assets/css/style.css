@@ -1,0 +1,24 @@
+p {
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1, h6 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    color: #fff;
+}
+
+#main {
+    padding: 25px;
+}
+
+ul {
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+span {
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
