@@ -1,29 +1,79 @@
-//Watch the demo.
-//The player will have to guess the answer, just like in Word Guess. This time, though, the player will guess with numbers instead of letters. (JH: this will require a .onclick event rather than a onkeyup event)
+console.log("works");
 
-//START HERE!
-//Here's how the app works:
+// below I'm creating an array that we will loop through.
+// Make elements and inject into DOM
 
-//There will be four crystals displayed as buttons on the page.  
-//I need to insert id tags in each of the img tags to reference the random numbers
+var crystals = [
+  'assets/images/jewel_1.png',
+  'assets/images/jewel_2.png',
+  'assets/images/jewel_3.png',
+  'assets/images/jewel_4.png',
+]
+// creating random number for computer
+//we don't give values here to avoid a scoping issues
+var goalNumber
+var userScore 
+//setting the wins and losses variables.  We're using jquery to insert into DOM. :)
+var wins = 0;
+$("#wins").html(wins);
+var losses = 0;
+$("#losses").html(losses);
 
-//The player will be shown a random number at the start of the game.
-//Each crystal should have a random hidden value between 1 - 12.
 
-//When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
 
-//Your game will hide this amount until the player clicks a crystal.
-//When they do click one, update the player's score counter.
 
-//The player wins if their total score matches the random number from the beginning of the game.
-//The player loses if their score goes above the random number.
+function startGame() {
+  // for loop for creating crystal images and setting random value to each one
+  //this makes sure the div is empty before for loop runs.
 
-//The game restarts whenever the player wins or loses.
+  // creating random number for computer
+  goalNumber = Math.ceil((Math.random() * 101) + 19);
+  $("#goal-number").html(goalNumber);
+  userScore = 0;
+  $("#user-score").html(userScore);
 
-//When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. Of course, the user's score (and score counter) will reset to zero.
+  //setting our crystal for loop and attributes.
+  //Need to use .empty() to make sure fields are empty on game start
+  $("#crystals").empty()
+  for (let i = 0; i < crystals.length; i++) {
+    var imageCrystal = $('<img>')
+    imageCrystal.attr('src', crystals[i])
+    imageCrystal.attr('random-value', Math.ceil(Math.random() * 12))
+    imageCrystal.addClass('each-crystal')
+    $('#crystals').append(imageCrystal)
+  }
 
-//The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game.
+}
+//calling the function to start/reset game
+startGame();
 
-//** */Option 1 Game design notes
 
-//The random number shown at the start of the game should be between 19 - 120.
+
+
+//Starting the onclick with $(document) to make sure to scan entire document on every restart.
+$(document).on('click', '.each-crystal', function () {
+  //below we're making sure our "strings" covert to numbers, parseInt is another way to do it.
+  var value = Number($(this).attr('random-value'))
+  //below we're adding to our total with every click and using jquery to insert into DOM.
+  userScore += value;
+  $("#user-score").html(userScore);
+  //console.log to check shit and make sure it's working.
+  console.log(userScore);
+
+  //our if statements are below, if our scores match we increase/decrease our score 1, use jquery to insert into DOM, restart the game and last but not least, alert that user has won/lost!
+  if (userScore === goalNumber) {
+    wins++;
+    $("#wins").html(wins);
+    startGame();
+    alert("You Win");
+  }
+
+  if (userScore > goalNumber) {
+    losses++;
+    $("#losses").html(losses);
+    startGame();
+    alert("You Lose");
+
+  }
+
+});

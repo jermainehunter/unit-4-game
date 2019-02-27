@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Jewel Guessing Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
 
 <body class="bg-dark">
@@ -29,16 +34,14 @@
                     <li>Each time when the game starts, the game will change the value of each crystal.</li>
                 </ul>
             </p>
-            <!--fdfdfdf-->
-            <p >Random Number: <span id="computerchoice-number"></span></p>
-            <p>User Score: <span id="user-score"></span></p>
-            
-            <p>
-                <img id="crystal-one" src="assets/images/jewel_1.png"><span id="jewel_1_value">testing</span>
-                <img id="crystal-two" src="assets/images/jewel_2.png"><span id="jewel_2_value">testing</span>
-                <img id="crystal-three" src="assets/images/jewel_3.png"><span id="jewel_3_value">testing</span>
-                <img id="crystal-four" src="assets/images/jewel_4.png"><span id="jewel_4_value">testing</span>
-            </p>
+            <!--The random number and User Score will show below-->
+            <p class="scores">Random Number: <span id="goal-number"></span></p>
+            <p class="scores">User Score: <span id="user-score"></span></p>
+            <p class="scores">Wins: <span id="wins"></span></p>
+            <p class="scores">Losses: <span id="losses"></span></p>
+                        <!--The 4 jewels will show below. The jewels need to be assigned a random number at the beginning of each game and they need to display their value when clicked. The id attribute the img tag will be assigned to their random number assignment and the attribute in the span tag is to show their value on screen-->
+
+            <div id="crystals"></div>
 
 
 
@@ -49,8 +52,8 @@
 
         </div>
     </div>
-    <link src="assets/javascript/game.js" type="text/javascript">
-    </>
+    
+   <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
