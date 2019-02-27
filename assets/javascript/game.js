@@ -36,8 +36,8 @@ function startGame() {
   userScore = 0;
   $("#user-score").html(userScore);
 
-  //setting our crystal for loop and attributes.
-  //Need to use .empty() to make sure fields are empty on game start
+  //setting crystals for loop and attributes.
+  //Need to use .empty() to make sure fields are empty on game start...something new we learned during extended session! check video
   $("#crystals").empty()
   for (let i = 0; i < crystals.length; i++) {
     var imageCrystal = $('<img>')
