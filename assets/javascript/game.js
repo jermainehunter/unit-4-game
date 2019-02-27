@@ -1,3 +1,7 @@
+
+
+// added this homework to my Bootstrap Portfolio https://jermainehunter.github.io/Bootstrap-Portfolio/portfolio.html
+
 console.log("works");
 
 // below I'm creating an array that we will loop through.
