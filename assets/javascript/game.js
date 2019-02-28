@@ -17,7 +17,7 @@ var crystals = [
 //we don't give values here to avoid a scoping issues
 var goalNumber
 var userScore 
-//setting the wins and losses variables.  We're using jquery to insert into DOM. :)
+//setting the wins and losses variables.  Using jquery to insert into DOM. :)
 var wins = 0;
 $("#wins").html(wins);
 var losses = 0;
@@ -47,7 +47,8 @@ function startGame() {
     $('#crystals').append(imageCrystal)
   }
 
-}
+}  //end of start game function
+
 //calling the function to start/reset game
 startGame();
 
